@@ -1,5 +1,5 @@
 <?php
-
+$title = "My Flights";
 require_once('html-templates\head.php');
 
 ?>
