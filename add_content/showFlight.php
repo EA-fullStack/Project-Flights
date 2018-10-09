@@ -1,3 +1,7 @@
+<?php 
+    require_once '..\bl.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,11 +17,7 @@
     ?>
     <main class="container-fluid p-0">
     
-        <?php
-
-            echo 'show flight';
-
-        ?>
+    
 
     </main>
     <footer>

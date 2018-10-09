@@ -1,9 +1,9 @@
 <?php
-    require_once './dal.php';
-    require_once './flight-model.php';
-    require_once './pilot-model.php';
-    require_once './airport-model.php';
-    require_once './country-model.php';
+    require_once 'dal.php';
+    require_once 'model/flight-model.php';
+    require_once 'model/pilot-model.php';
+    require_once 'model/airport-model.php';
+    require_once 'model/country-model.php';
 
 class BusinessLogic {
     private $dal;
@@ -18,7 +18,7 @@ class BusinessLogic {
         $resultsArray = [];
 
         while ($row = $results->fetch()) {
-            array_push( $resultsArray, new AirportModel($row));
+            array_push( $resultsArray, $row);
         }
         return $resultsArray;
     }
@@ -29,7 +29,7 @@ class BusinessLogic {
         $resultsArray = [];
 
         while ($row = $results->fetch()) {
-            array_push( $resultsArray, new CountryModel($row));
+            array_push( $resultsArray, $row);
         }
         return $resultsArray;
     }
@@ -40,19 +40,20 @@ class BusinessLogic {
         $resultsArray = [];
 
         while ($row = $results->fetch()) {
-            array_push( $resultsArray, new FlightModel($row));
+            array_push( $resultsArray, $row);
         }
         return $resultsArray;
     }
 
     function getPilot() {
-        $q = 'SELECT * FROM `pilot`';
+        $q = 'SELECT `id`, `name`, `level`, `picture_src` FROM `pilot`;';
         $results = $this->dal->select($q);
         $resultsArray = [];
 
         while ($row = $results->fetch()) {
-            array_push( $resultsArray, new PilotModel($row));
+            array_push( $resultsArray, $row);
         }
         return $resultsArray;
     }
+
 }

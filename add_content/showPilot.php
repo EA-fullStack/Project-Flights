@@ -1,3 +1,7 @@
+<?php 
+    require_once '..\bl.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,12 +16,35 @@
     require_once '../header.php';
     ?>
     <main class="container-fluid p-0">
-    
-        <?php
-
-            echo 'show pilot';
-
+    <h1 align=center>Our Pilots</h1>
+    <table class="table table-striped container">
+  <thead class="thead-dark">
+  <?php
+        $buisness = new BusinessLogic();
+        $allFlights = $buisness->getPilot();
         ?>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Picture</th>
+    </tr>
+  </thead>
+  <tbody>
+<?php
+    foreach ($allFlights as $key => $value) {
+?>
+    <tr>
+    <th scope="row"><?php echo $key+1 ?></th>
+    <td><?php echo $value['id'] ?></td>
+    <td><?php echo $value['name'] ?></td>
+    <td><?php echo $value['picture_src'] ?></td>
+    </tr>
+    </tbody>
+<?php
+}
+?>
+</table>
 
     </main>
     <footer>
