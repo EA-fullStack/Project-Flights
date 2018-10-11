@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 09, 2018 at 01:05 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.8
+-- Generation Time: Oct 11, 2018 at 09:07 AM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,8 +31,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `airport` (
   `id` int(11) NOT NULL,
   `name` varchar(20) COLLATE utf8_bin NOT NULL,
-  `contry_id` int(11) NOT NULL
+  `country_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `airport`
+--
+
+INSERT INTO `airport` (`id`, `name`, `country_id`) VALUES
+(7, 'ben-gurion', 14),
+(8, 'Eilat', 14);
 
 -- --------------------------------------------------------
 
@@ -44,6 +52,13 @@ CREATE TABLE `country` (
   `id` int(11) NOT NULL,
   `name` varchar(20) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `country`
+--
+
+INSERT INTO `country` (`id`, `name`) VALUES
+(14, 'israel');
 
 -- --------------------------------------------------------
 
@@ -74,6 +89,13 @@ CREATE TABLE `pilot` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
+-- Dumping data for table `pilot`
+--
+
+INSERT INTO `pilot` (`id`, `name`, `level`, `picture_src`) VALUES
+(1, 'woman', 0, 'pilot1.jpg');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -82,7 +104,7 @@ CREATE TABLE `pilot` (
 --
 ALTER TABLE `airport`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `contry_id` (`contry_id`);
+  ADD KEY `contry_id` (`country_id`);
 
 --
 -- Indexes for table `country`
@@ -113,25 +135,25 @@ ALTER TABLE `pilot`
 -- AUTO_INCREMENT for table `airport`
 --
 ALTER TABLE `airport`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `country`
 --
 ALTER TABLE `country`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `flight`
 --
 ALTER TABLE `flight`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `pilot`
 --
 ALTER TABLE `pilot`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -141,14 +163,15 @@ ALTER TABLE `pilot`
 -- Constraints for table `airport`
 --
 ALTER TABLE `airport`
-  ADD CONSTRAINT `airport_ibfk_1` FOREIGN KEY (`contry_id`) REFERENCES `country` (`id`);
+  ADD CONSTRAINT `airport_ibfk_1` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`);
 
 --
 -- Constraints for table `flight`
 --
 ALTER TABLE `flight`
   ADD CONSTRAINT `flight_ibfk_3` FOREIGN KEY (`flight_from`) REFERENCES `airport` (`id`),
-  ADD CONSTRAINT `flight_ibfk_4` FOREIGN KEY (`flight_to`) REFERENCES `airport` (`id`);
+  ADD CONSTRAINT `flight_ibfk_4` FOREIGN KEY (`flight_to`) REFERENCES `airport` (`id`),
+  ADD CONSTRAINT `flight_ibfk_5` FOREIGN KEY (`pilot_id`) REFERENCES `pilot` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

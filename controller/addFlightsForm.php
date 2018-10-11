@@ -4,8 +4,9 @@
     <input name='Fno' type="text" class="form-control" id="formGroupExampleInput" placeholder="Flight No">
   </div>
   <div class="form-group">
-    <label for="formGroupExampleInput">Flight Date</label>
-    <input name='FdateTime' type="date" class="form-control" id="formGroupExampleInput" placeholder="Date/Time">
+    <label for="formGroupExampleInput">Flight Date/Time</label>
+    <input name='FdateTime[]' type="date" class="form-control" id="formGroupExampleInput" placeholder="Date/Time">
+    <input name='FdateTime[]' type="time" class="form-control" id="formGroupExampleInput" placeholder="Date/Time">
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput">From Airport</label>
@@ -59,11 +60,13 @@ if(isset($_POST['addPilot'])){
   require_once '../model/flight-model.php';
   $validation = new ValidateContent();
   $content[] = $_POST['Fno'];
-  $content[] = $_POST['FdateTime'];
+  $content[] = implode(' ', $_POST['FdateTime']);
+  print_r($content);
   $content[] = $_POST['Ffrom'];
   $content[] = $_POST['Fto'];
   $content[] = $_POST['Pid'];
   if($validation->validateInput($content)){
+
     $flight = new FlightModel($content);
     $bl->insertFlight($flight);
   }
