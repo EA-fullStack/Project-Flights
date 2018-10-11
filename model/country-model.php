@@ -5,9 +5,9 @@ class CountryModel
     private $id;
     private $name;
     
-    function __constructor($arr) {
-        $this->id = $arr['id'];
-        $this->name = $arr['name'];
+    function __construct($arr) {
+        $this->id = $arr[0];
+        $this->name = $arr[0];
     }
 
     function getCountryId() {

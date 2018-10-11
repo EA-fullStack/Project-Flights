@@ -1,3 +1,35 @@
+* button {
+  cursor: pointer;
+}
+.addCountryWraper {
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.5);
+  width: 30%;
+  margin: 0px auto;
+  text-align: center;
+}
 .pilot-images {
   max-width: 100px;
+  max-height: 100px;
+}
+.addPilotWraper {
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.5);
+  width: 30%;
+  margin: 0px auto;
+  text-align: center;
+}
+.table td,
+.table th {
+  vertical-align: middle;
+}
+.flightsTable {
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.5);
+}
+.pilotsTable {
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-size: 25px;
+}
+.pilotsTable td {
+  min-width: 120px;
+  height: 120px;
 }

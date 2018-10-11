@@ -1,6 +1,8 @@
 <?php
 $title = "Add Pilot";
-require_once('..\html-templates\head.php');
+require_once('..\controller\head.php');
+require_once('..\model\flight-model.php');
+require_once '..\bl.php';
 
 ?>
 <body>
@@ -25,5 +27,5 @@ require_once('..\html-templates\head.php');
 
     </main>
     <?PHP 
-require_once('..\html-templates\footer.php');
+require_once('..\controller\footer.php');
 ?>

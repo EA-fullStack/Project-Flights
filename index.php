@@ -1,6 +1,6 @@
 <?php
 $title = "My Flights";
-require_once('html-templates\head.php');
+require_once('controller\head.php');
 
 ?>
 <body>
@@ -61,5 +61,5 @@ require_once('html-templates\head.php');
         </div>
     </main>
     <?PHP 
-require_once('html-templates\footer.php');
+require_once('controller\footer.php');
 ?>

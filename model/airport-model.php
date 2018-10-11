@@ -2,16 +2,14 @@
 
 class AirportModel
 {
-    private $id;
     private $name;
     private $contry_id;
     
-    function __constructor($arr) {
-        $this->id = $arr['id'];
-        $this->name = $arr['name'];
-        $this->contry_id = $arr['contry_id'];
+    function __construct($arr) {
+        $this->name = $arr[0];
+        $this->contry_id = $arr[1];
     }
-
+    
     function getAirportId() {
         return $this->id;
     }
@@ -21,6 +19,8 @@ class AirportModel
     function getAirportContryId() {
         return $this->contry_id;
     }
+
+    
 }
 
 ?>

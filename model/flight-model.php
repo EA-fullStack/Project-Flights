@@ -2,7 +2,6 @@
 
 class FlightModel
 {
-    private $id;
     private $no;
     private $flight_datetime;
     private $flight_from;
@@ -10,13 +9,12 @@ class FlightModel
     private $pilot_id;
     
     
-    function __constructor($arr) {
-        $this->id = $arr['id'];
-        $this->no = $arr['no'];
-        $this->flight_datetime = $arr['flight_datetime'];
-        $this->flight_from = $arr['flight_from'];
-        $this->flight_to = $arr['flight_to'];
-        $this->pilot_id = $arr['pilot_id'];
+    public function __construct($arr) {
+        $this->no = $arr[0];
+        $this->flight_datetime = $arr[1];
+        $this->flight_from = $arr[2];
+        $this->flight_to = $arr[3];
+        $this->pilot_id = $arr[4];
     }
 
     function getFlightId() {
@@ -25,17 +23,29 @@ class FlightModel
     function getFlightNo() {
         return $this->no;
     }
-    function getFlightFlightDatetime() {
+    function getFlightDate() {
         return $this->flight_datetime;
     }
-    function getFlightFlightFrom() {
+    function getFlightFrom() {
         return $this->flight_from;
     }
-    function getFlightFlightTo() {
+    function getFlightTo() {
         return $this->flight_to;
     }
     function getFlightPilotId() {
         return $this->pilot_id;
+    }
+    function getFlight(){
+    
+        $flightsArr = [];
+        $flightsArr[] = $this->no;
+        $flightsArr[] = $this->flight_datetime;
+        $flightsArr[] = $this->flight_from;
+        $flightsArr[] = $this->flight_to;
+        $flightsArr[] = $this->pilot_id;
+        return $flightsArr;
+        
+        
     }
 }
 

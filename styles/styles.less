@@ -1,3 +1,50 @@
+//standard shadow for all large boxes
+@boxShadow: 5px 10px 20px rgba(0, 0, 0, 0.500);
+
+
+
+* button{
+  cursor: pointer;
+}
+
+
+.addCountryWraper{
+  box-shadow: @boxShadow;
+  width: 30%;
+  margin: 0px auto;
+  text-align:center;
+}
+
+
+
 .pilot-images {
   max-width: 100px;
+  max-height: 100px;
+}
+.addPilotWraper{
+  box-shadow: @boxShadow;
+  width: 30%;
+  margin: 0px auto;
+  text-align:center;
+  }
+.table td, .table th{
+  vertical-align: middle;
+}
+
+
+.flightsTable{
+  box-shadow: @boxShadow;
+
+}
+
+
+.pilotsTable{
+  box-shadow: @boxShadow;
+  text-align: center;
+  font-size: 25px;
+  td{
+    min-width:120px;
+    height: 120px;
+  
+    }
 }

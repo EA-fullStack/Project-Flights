@@ -24,5 +24,33 @@ class DataAccessLayer {
 
         return $stmt;
     }
+
+    function insert($query) {
+        $pdo = new PDO($this->dsn, $this->user, $this->pass, $this->opt);
+        $stmt = $pdo->query($query);
+    }
+
+    function fkJoin($query){
+
+        $pdo = new PDO($this->dsn, $this->user, $this->pass, $this->opt);
+        $stmt = $pdo->query($query);
+        
+
+        return $stmt;
+        
+    }
+    
+
+
 }
+// SELECT 
+//     pilot.id, pilot.name, flight.pilot_id
+// FROM 
+//     pilot
+// INNER JOIN 
+//     flight 
+// ON
+//     pilot.id=flight.pilot_id
+//     WHERE pilot.id =flight.pilot_id; 
+
 ?>

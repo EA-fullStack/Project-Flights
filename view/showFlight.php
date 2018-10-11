@@ -1,26 +1,20 @@
 <?php
 $title = "Show Flights";
-require_once('..\html-templates\footer.php');
+require_once('..\controller\head.php');
+require_once '..\bl.php';
+require_once ('..\model\validate-model.php');
 ?>
 <body>
-
 <?php
-    require_once '..\bl.php';
+    require_once '../header.php';
+    ?>
 
-    $bl = new BusinessLogic;
-    $arrayOfFlights = $bl->getFlight();
+<?PHP 
+require_once('..\controller\showFlights.php');
 ?>
-<table>
-<?php foreach ($arrayOfFlights as $item) { ?>
-<tr>
-<td><?php echo $item->getFlightId() ?></td>
-<td><?php echo $item->getFlightFrom() ?></td>
-<td><?php echo $item->getFlightTo() ?></td>
-</tr>
-<?php } ?>
 
 
 <?PHP 
-require_once('..\html-templates\footer.php');
+require_once('..\controller\footer.php');
 ?>
 

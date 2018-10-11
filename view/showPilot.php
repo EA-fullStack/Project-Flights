@@ -5,7 +5,7 @@
     
 <?php
 $title = "show pilots";
-require_once('..\html-templates\head.php');
+require_once('..\controller\head.php');
 
 ?>
 
@@ -16,7 +16,7 @@ require_once('..\html-templates\head.php');
     ?>
     <main class="container-fluid p-0">
     <h1 align=center>Our Pilots</h1>
-    <table class="table table-striped container">
+    <table class="pilotsTable table table-striped container">
     <thead class="thead-dark">
     <?php
         $buisness = new BusinessLogic();
@@ -35,23 +35,19 @@ require_once('..\html-templates\head.php');
 ?>
     <tr> 
     <th scope="row"><?php echo $key+1 ?></th>
-    <td><?php echo $value['id'] ?></td>
-    <td><?php echo $value['name'] ?></td>
+    <td align='center'><?php echo $value['id'] ?></td>
+    <td><p><?php echo $value['name'] ?></p></td>
     <td>
-    
-    <!-- <div style='position:absolute' id='pilotImg<?php echo $key ?>' class="collapse"> -->
-    <img class='pilot-images' src="../assets/pilot-profiles/<?php echo $value['picture_src'] ?>" alt="">
-    <!-- </div> -->
-    
+        <img class='pilot-images' src="../assets/pilot-profiles/<?php echo $value['picture_src'] ?>" alt="">    
     </td>
     </tr>
-    </tbody>
 <?php
 }
 ?>
+    </tbody>
 </table>
 
 </main>
 <?PHP 
-require_once('..\html-templates\footer.php');
+require_once('..\controller\footer.php');
 ?>

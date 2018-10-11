@@ -7,7 +7,7 @@ class PilotModel
     private $level;
     private $picture_src;
     
-    function __constructor($arr) {
+    function __construct($arr) {
         $this->id = $arr['id'];
         $this->name = $arr['name'];
         $this->level = $arr['level'];
